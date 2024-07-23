@@ -26,7 +26,6 @@ function App() {
 
       {/* <img src={process.env.PUBLIC_URL + 'logo192.png'} alt="" /> */}
 
-
       {/* 상품 리스트 */}
       <div className="container">
         <div className="flex-row">
