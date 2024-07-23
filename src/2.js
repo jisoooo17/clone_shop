@@ -4,8 +4,6 @@ import bg from "./img/bg.png";
 import { useState } from 'react';
 // import {a, b} from "./data_multi.js";
 import data from "./data.js";
-import {Routes, Route, Link} from "react-router-dom";
-import Detail from './Detail.js';
 
 function App() {
   let [shoes, setShoes] = useState(data);
@@ -22,33 +20,24 @@ function App() {
         </Container>
       </Navbar>
 
-      <Link to={"/"}>Home</Link>
-      <Link to={"/detail"}>Detail</Link>
+      {/* 키비주얼 */}
+      <div className="main-bg"></div>
+      {/* <div className="main-bg" style={{backgroundImage: `${bg}`}}></div> */}
 
-      <Routes>
-        <Route path="/" element={
-          <div>
-            {/* 키비주얼 */}
-              <div className="main-bg"></div>
+      {/* <img src={process.env.PUBLIC_URL + 'logo192.png'} alt="" /> */}
 
-              {/* 상품 리스트 */}
-              <div className="container">
-                <div className="flex-row">
-                  {
-                    shoes.map((q, i)=>{
-                      return(
-                        <Card shoes={shoes[i]} key={i} i={i}/>
-                      )
-                    })
-                  }
-                </div>
-              </div>
-          </div>
-          }></Route>
-        <Route path="detail" element={<Detail/>}/>
-      </Routes>
-
-      
+      {/* 상품 리스트 */}
+      <div className="container">
+        <div className="flex-row">
+          {
+            shoes.map((q, i)=>{
+              return(
+                <Card shoes={shoes[i]} key={i} i={i}/>
+              )
+            })
+          }
+        </div>
+      </div>
     </div>
   );
 }
