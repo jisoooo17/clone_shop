@@ -5,8 +5,7 @@ import { useState } from 'react';
 // import {a, b} from "./data_multi.js";
 import data from "./data.js";
 import {Routes, Route, Link, useNavigate, Outlet} from "react-router-dom";
-import Detail from './routes/Detail.js';
-
+import Detail from "./routes/Detail.js"
 
 function App() {
   let [shoes, setShoes] = useState(data);
@@ -16,7 +15,7 @@ function App() {
     <div className="App">
       <Navbar bg="light" data-bs-theme="light">
         <Container>
-          <Navbar.Brand>Navbar</Navbar.Brand>
+          <Navbar.Brand>Shop</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={()=>{navigate("/")}}>Home</Nav.Link>
             <Nav.Link onClick={()=>{navigate("/detail")}}>Detail</Nav.Link>
@@ -24,12 +23,14 @@ function App() {
         </Container>
       </Navbar>
 
-
       <Routes>
-        <Route path="/" element={
+        <Route path='/' element={
           <div>
             {/* 키비주얼 */}
-              <div className="main-bg"></div>
+            <div className="main-bg"></div>
+              {/* <div className="main-bg" style={{backgroundImage: `${bg}`}}></div> */}
+
+              {/* <img src={process.env.PUBLIC_URL + 'logo192.png'} alt="" /> */}
 
               {/* 상품 리스트 */}
               <div className="container">
@@ -44,26 +45,24 @@ function App() {
                 </div>
               </div>
           </div>
-          }></Route>
-        <Route path="/detail/:id" element={<Detail shoes={shoes}/>}/>
+        } />
+        <Route path='/detail/:id' element={<Detail shoes={shoes}/>}/>
 
-        <Route path="/about" element={<About/>}>
-          <Route path="member" element={<div>member</div>}></Route>
-          <Route path="location" element={<div>location</div>}></Route>
+        <Route path='/about' element={<About/>}>
+          <Route path='member' element={<div>member</div>}></Route>
+          <Route path='location' element={<div>location</div>}></Route>
         </Route>
-      
-        <Route path="*" element={<div>없는 페이지입니다.</div>}/>
-      </Routes>
+        <Route path='*' element={<div>없는 페이지입니다.</div>}></Route>
 
-      
+      </Routes>
     </div>
   );
 }
 
 function About(){
-  return (
+  return(
     <div>
-      <h4>회사정보</h4>
+      <h4>회사 정보</h4>
       <Outlet></Outlet>
     </div>
   )
