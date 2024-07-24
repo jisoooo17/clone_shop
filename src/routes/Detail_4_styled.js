@@ -1,15 +1,32 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import styled from "styled-components";
+
+let YellowBtn = styled.button`
+  background: ${props => props.bg};
+  color: ${props => props.bg == "blue" ? "#fff" : "#000"};
+  padding: 10px;
+`
+
+let Box = styled.div`
+  background: #aaa;
+  padding: 20px
+`
 
 const Detail = (props) => {
   let {id} = useParams();
   let prodId = props.shoes.find(function(x) {
     return x.id == id
   });
-  console.log(prodId);
+  // console.log(prodId);
 
   return (
     <div className="detail-w">
+      <Box>
+        <YellowBtn bg="blue">버튼</YellowBtn>
+        <YellowBtn bg="orange">버튼</YellowBtn>
+      </Box>
+
       <div className="container">
         <div className="row">
           <div className="col-md-6">
