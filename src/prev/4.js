@@ -24,7 +24,6 @@ function App() {
         </Container>
       </Navbar>
 
-
       <Routes>
         <Route path="/" element={
           <div>
@@ -45,13 +44,16 @@ function App() {
               </div>
           </div>
           }></Route>
-        <Route path="/detail/:id" element={<Detail shoes={shoes}/>}/>
-
+        <Route path="/detail" element={<Detail/>}/>
         <Route path="/about" element={<About/>}>
           <Route path="member" element={<div>member</div>}></Route>
           <Route path="location" element={<div>location</div>}></Route>
         </Route>
-      
+
+        {/* <Route path="/about/member" element={<About/>}></Route>
+        <Route path="/about/location" element={<About/>}></Route> */}
+
+
         <Route path="*" element={<div>없는 페이지입니다.</div>}/>
       </Routes>
 
