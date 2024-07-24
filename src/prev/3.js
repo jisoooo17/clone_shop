@@ -4,26 +4,26 @@ import bg from "./img/bg.png";
 import { useState } from 'react';
 // import {a, b} from "./data_multi.js";
 import data from "./data.js";
-import {Routes, Route, Link, useNavigate, Outlet} from "react-router-dom";
+import {Routes, Route, Link} from "react-router-dom";
 import Detail from './routes/Detail.js';
-
 
 function App() {
   let [shoes, setShoes] = useState(data);
-  let navigate = useNavigate();
 
   return (
     <div className="App">
       <Navbar bg="light" data-bs-theme="light">
         <Container>
-          <Navbar.Brand>Navbar</Navbar.Brand>
+          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link onClick={()=>{navigate("/")}}>Home</Nav.Link>
-            <Nav.Link onClick={()=>{navigate("/detail")}}>Detail</Nav.Link>
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#features">Cart</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
 
+      <Link to={"/"}>Home</Link>
+      <Link to={"/detail"}>Detail</Link>
 
       <Routes>
         <Route path="/" element={
@@ -45,31 +45,12 @@ function App() {
               </div>
           </div>
           }></Route>
-        <Route path="/detail" element={<Detail/>}/>
-        <Route path="/about" element={<About/>}>
-          <Route path="member" element={<div>member</div>}></Route>
-          <Route path="location" element={<div>location</div>}></Route>
-        </Route>
-
-        {/* <Route path="/about/member" element={<About/>}></Route>
-        <Route path="/about/location" element={<About/>}></Route> */}
-
-
-        <Route path="*" element={<div>없는 페이지입니다.</div>}/>
+        <Route path="detail" element={<Detail/>}/>
       </Routes>
 
       
     </div>
   );
-}
-
-function About(){
-  return (
-    <div>
-      <h4>회사정보</h4>
-      <Outlet></Outlet>
-    </div>
-  )
 }
 
 function Card (props){
