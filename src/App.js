@@ -6,9 +6,11 @@ import { useState } from 'react';
 import data from "./data.js";
 import {Routes, Route, Link, useNavigate, Outlet} from "react-router-dom";
 import Detail from "./routes/Detail.js"
+import axios from "axios";
 
 function App() {
   let [shoes, setShoes] = useState(data);
+  let [clkCnt, setClkCnt] = useState(0);
   let navigate = useNavigate();
 
   return (
@@ -42,8 +44,20 @@ function App() {
                       )
                     })
                   }
-                </div>
+                </div> 
               </div>
+
+              <button onClick={()=>{
+                axios.get("https://codingapple1.github.io/shop/data3.json")
+                  .then((data)=>{
+                    let newShoes = [...shoes, ...data.data];
+                    // newShoes.push(data.data[0])
+                    setShoes(newShoes);
+                  })
+                  .catch((error)=>{
+                    console.log(error)
+                  });
+              }}>버튼</button>
           </div>
         } />
         <Route path='/detail/:id' element={<Detail shoes={shoes}/>}/>
