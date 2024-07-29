@@ -10,7 +10,7 @@ import axios from "axios";
 
 function App() {
   let [shoes, setShoes] = useState(data);
-  let [clkCnt, setClkCnt] = useState(0);
+  let [clkCnt, setClkCnt] = useState(1);
   let navigate = useNavigate();
 
   return (
@@ -47,17 +47,23 @@ function App() {
                 </div> 
               </div>
 
-              <button onClick={()=>{
-                axios.get("https://codingapple1.github.io/shop/data3.json")
-                  .then((data)=>{
-                    let newShoes = [...shoes, ...data.data];
-                    // newShoes.push(data.data[0])
-                    setShoes(newShoes);
-                  })
-                  .catch((error)=>{
-                    console.log(error)
-                  });
-              }}>버튼</button>
+              {
+                clkCnt < 3 ? (
+                  <button onClick={()=>{
+                    axios.get(clkCnt == 1 ? "https://codingapple1.github.io/shop/data2.json" : "https://codingapple1.github.io/shop/data3.json")
+                      .then((res) => {
+                        let newShoes = [...shoes, ...res.data];
+                        setShoes(newShoes);
+                        setClkCnt(clkCnt + 1);
+                      })
+                      .catch((err) => {
+                        console.log(err);
+                      })
+                  }}>버튼</button>
+                ) : (
+                  <div>상품이 없습니다.</div>
+                )
+              }
           </div>
         } />
         <Route path='/detail/:id' element={<Detail shoes={shoes}/>}/>
