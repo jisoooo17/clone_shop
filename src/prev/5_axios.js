@@ -73,6 +73,7 @@ function App() {
           <Route path='location' element={<div>location</div>}></Route>
         </Route>
         <Route path='*' element={<div>없는 페이지입니다.</div>}></Route>
+
       </Routes>
     </div>
   );
