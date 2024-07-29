@@ -8,12 +8,21 @@ const Detail = (props) => {
   let prodId = props.shoes.find(function(x) {
     return x.id == id
   });
+  let [fade2, setFade2] = useState("");
 
   // useEffect test
   let [count, setCount] = useState(0);
   let [sale, setSale] = useState(true);
   let [num, setNum] = useState('');
   let [tab, setTab] = useState(0);
+
+  useEffect(()=>{
+    setFade2("end");
+
+    return ()=>{
+      setFade2("");
+    }
+  })
 
   useEffect(()=>{
     let timer = setTimeout(function(){ setSale(false) }, 2000);
@@ -35,7 +44,7 @@ const Detail = (props) => {
   }, [num])
 
   return (
-    <div className="detail-w">
+    <div className={`detail-w start ${fade2}`}>
       {count}
       <button onClick={()=>{setCount(count+=1)}}>버튼</button>
 

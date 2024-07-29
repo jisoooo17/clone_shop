@@ -5,3 +5,7 @@
 .main-bg {height: 300px; background: url("./img/bg.png") no-repeat center center;}
 .flex-row {display: flex; justify-content: space-between; }
 .flex-row img {width: 80%;}
+
+
+.start {opacity: 0;}
+.end {opacity: 1; transition: opacity .5s;}
