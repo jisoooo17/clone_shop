@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeName, increase } from "../store/userSlice.js";
+import { changeName, increase } from '../store.js';
 
 const Cart = () => {
   let state = useSelector((state) => {return state})
