@@ -8,12 +8,8 @@ import {Routes, Route, Link, useNavigate, Outlet} from "react-router-dom";
 import Detail from "./routes/Detail.js"
 import axios from "axios";
 
-export let Context1 = createContext();
-
 function App() {
   let [shoes, setShoes] = useState(data);
-  let [stock, setStock] = useState([10, 11, 12]);
-
   let [clkCnt, setClkCnt] = useState(1);
   let navigate = useNavigate();
 
@@ -71,9 +67,7 @@ function App() {
           </div>
         } />
         <Route path='/detail/:id' element={
-            <Context1.Provider value={{stock, shoes}}>
-              <Detail shoes={shoes}/>
-            </Context1.Provider>
+            <Detail shoes={shoes}/>
           }/>
 
         <Route path='/about' element={<About/>}>
