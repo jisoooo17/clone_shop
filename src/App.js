@@ -1,8 +1,8 @@
 import './App.css';
 import {Container, Nav, Navbar} from 'react-bootstrap';
-import { useState, createContext } from 'react';
+import { useState } from 'react';
 import data from "./data.js";
-import {Routes, Route, Link, useNavigate, Outlet} from "react-router-dom";
+import {Routes, Route, useNavigate, Outlet} from "react-router-dom";
 import Detail from "./routes/Detail.js"
 import axios from "axios";
 import Cart from './routes/Cart.js';
@@ -29,9 +29,6 @@ function App() {
           <div>
             {/* 키비주얼 */}
             <div className="main-bg"></div>
-              {/* <div className="main-bg" style={{backgroundImage: `${bg}`}}></div> */}
-
-              {/* <img src={process.env.PUBLIC_URL + 'logo192.png'} alt="" /> */}
 
               {/* 상품 리스트 */}
               <div className="container">
