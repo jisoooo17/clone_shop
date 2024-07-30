@@ -1,12 +1,11 @@
 import './App.css';
 import {Container, Nav, Navbar} from 'react-bootstrap';
-import bg from "./img/bg.png";
 import { useState, createContext } from 'react';
-// import {a, b} from "./data_multi.js";
 import data from "./data.js";
 import {Routes, Route, Link, useNavigate, Outlet} from "react-router-dom";
 import Detail from "./routes/Detail.js"
 import axios from "axios";
+import Cart from './routes/Cart.js';
 
 function App() {
   let [shoes, setShoes] = useState(data);
@@ -74,6 +73,7 @@ function App() {
           <Route path='member' element={<div>member</div>}></Route>
           <Route path='location' element={<div>location</div>}></Route>
         </Route>
+        <Route path="/cart" element={<Cart/>}/>
         <Route path='*' element={<div>없는 페이지입니다.</div>}></Route>
       </Routes>
     </div>
