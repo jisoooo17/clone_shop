@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from "styled-components";
 import {Nav} from 'react-bootstrap';
-import {Context1} from "../App.js";
+import {Context1} from "../App.js"; // context API
 
 const Detail = (props) => {
   let {id} = useParams();
@@ -16,7 +16,7 @@ const Detail = (props) => {
   let [num, setNum] = useState('');
   let [tab, setTab] = useState(0);
 
-  // context
+  // context API
   let {stock, shoes} = useContext(Context1);
 
   useEffect(()=>{
@@ -73,7 +73,6 @@ const Detail = (props) => {
         </Nav.Item>
       </Nav>
 
-
       <TabContent tab={tab}/>
     </div>
   );
@@ -93,7 +92,7 @@ const Detail = (props) => {
 
 function TabContent ({tab}) {
   let [fade, setFade] = useState("");
-  let {stock, shoes} = useContext(Context1);
+  let {stock, shoes} = useContext(Context1); // context API
 
   useEffect(()=>{
     let a = setTimeout(()=>{setFade("end")}, 100);

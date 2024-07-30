@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from "styled-components";
 import {Nav} from 'react-bootstrap';
-import {Context1} from "../App.js";
+import {Context1} from "../App.js"; // context API
 
 const Detail = (props) => {
   let {id} = useParams();
@@ -17,7 +17,7 @@ const Detail = (props) => {
   let [tab, setTab] = useState(0);
 
   // context
-  let {stock, shoes} = useContext(Context1);
+  let {stock, shoes} = useContext(Context1); // context API
 
   useEffect(()=>{
     let timer = setTimeout(function(){ setSale(false) }, 2000);
@@ -93,7 +93,7 @@ const Detail = (props) => {
 
 function TabContent ({tab}) {
   let [fade, setFade] = useState("");
-  let {stock, shoes} = useContext(Context1);
+  let {stock, shoes} = useContext(Context1); // context API
 
   useEffect(()=>{
     let a = setTimeout(()=>{setFade("end")}, 100);
