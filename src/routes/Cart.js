@@ -45,9 +45,20 @@ const Cart = () => {
             )
           }
         </tbody>
-      </Table> 
+      </Table>
+
+      <Test/> 
     </div>
   );
 };
+
+function Test(){
+  if(false){
+    return <div>test</div>
+  } else if(true){
+    return <div>test2</div>
+  }
+  return null;
+}
 
 export default Cart;
