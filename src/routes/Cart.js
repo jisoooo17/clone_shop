@@ -47,18 +47,22 @@ const Cart = () => {
         </tbody>
       </Table>
 
-      <Test/> 
+      <Test/>
     </div>
   );
 };
 
 function Test(){
-  if(false){
-    return <div>test</div>
-  } else if(true){
-    return <div>test2</div>
+  let user = "seller";
+
+  switch (user){
+    case "seller" : 
+      return <h4>판매자 로그인</h4>
+    case "customer" :
+      return <h4>구매자 로그인</h4>
+    default: 
+      return <h4>일반 로그인</h4>
   }
-  return null;
 }
 
 export default Cart;
