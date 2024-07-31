@@ -1,6 +1,6 @@
 import './App.css';
 import {Container, Nav, Navbar} from 'react-bootstrap';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import data from "./data.js";
 import {Routes, Route, useNavigate, Outlet} from "react-router-dom";
 import Detail from "./routes/Detail.js"
@@ -12,6 +12,19 @@ function App() {
   let [clkCnt, setClkCnt] = useState(1);
   let navigate = useNavigate();
 
+  // localstorage
+  let obj = {name: "jisoo"}
+  localStorage.setItem("data", JSON.stringify(obj)); // json으로 변환
+
+  let obj2 = localStorage.getItem("data"); 
+  JSON.parse(obj2); //obj으로 변환
+  // console.log(JSON.parse(obj2).name);
+
+  useEffect(()=>{
+    localStorage.setItem("watched", JSON.stringify([]))
+  }, [])
+
+
   return (
     <div className="App">
       <Navbar bg="light" data-bs-theme="light">
@@ -19,7 +32,6 @@ function App() {
           <Navbar.Brand>Shop</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={()=>{navigate("/")}}>Home</Nav.Link>
-            <Nav.Link onClick={()=>{navigate("/detail")}}>Detail</Nav.Link>
             <Nav.Link onClick={()=>{navigate("/cart")}}>Cart</Nav.Link>
           </Nav>
         </Container>
@@ -88,8 +100,13 @@ function About(){
 }
 
 function Card (props){
+  let navigate = useNavigate();
+
   return (
-    <div className="col">
+    <div className="col" onClick={()=>{
+      navigate(`/detail/${props.shoes.id}`);
+      localStorage.setItem("watched", )
+    }}>
       <img src={`https://codingapple1.github.io/shop/shoes${props.i + 1}.jpg`} alt="" />
       <h4>{props.shoes.title}</h4>
       <p>{props.shoes.price}</p>
