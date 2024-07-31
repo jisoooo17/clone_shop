@@ -29,7 +29,6 @@ const Detail = (props) => {
     꺼낸거 = new Set(꺼낸거);
     꺼낸거 = Array.from(꺼낸거);
     localStorage.setItem("watched", JSON.stringify(꺼낸거))
-    console.log(꺼낸거);
   });
 
   return (
