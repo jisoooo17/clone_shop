@@ -46,41 +46,8 @@ const Cart = () => {
           }
         </tbody>
       </Table>
-
-      <Test1/>
-      <Test2/>
     </div>
   );
 };
-
-function Test1(){
-  let 현재상태 = "refund";
-  return(
-    <div>
-      {
-        {
-          info: <p>상품정보</p>,
-          shipping: <p>배송관련</p>,
-          refund: <p>환불약관</p>
-        }[현재상태]
-      }
-    </div>
-  )
-}
-
-let tab = {
-  info: <p>상품정보</p>,
-  shipping: <p>배송관련</p>,
-  refund: <p>환불약관</p>
-}
-
-function Test2(){
-  let 현재상태 = "info";
-  return (
-    <div>
-      {tab[현재상태]}
-    </div>
-  )
-}
 
 export default Cart;
