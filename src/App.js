@@ -21,8 +21,7 @@ function App() {
   // console.log(JSON.parse(obj2).name);
 
   useEffect(() => {
-    let watched = localStorage.getItem("watched");
-    if (!watched) {
+    if(!localStorage.getItem("watched")){
       localStorage.setItem("watched", JSON.stringify([]));
     }
   }, []);

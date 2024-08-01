@@ -23,13 +23,11 @@ const Detail = (props) => {
     // 누가 detail 페이지 접속하면
     // 그페이지에 보이는 상품 id가져와서
     // localstorage에 watched 항목에 추가
-    let 꺼낸거 = localStorage.getItem("watched");
-    꺼낸거 = JSON.parse(꺼낸거);
-    꺼낸거.push(prodId.id);
-    꺼낸거 = new Set(꺼낸거);
-    꺼낸거 = Array.from(꺼낸거);
-    localStorage.setItem("watched", JSON.stringify(꺼낸거))
-    console.log(꺼낸거);
+    let watched = JSON.parse(localStorage.getItem("watched"));
+    watched.push(prodId.id);
+    watched = new Set(watched);
+    watched= Array.from(watched);
+    localStorage.setItem("watched", JSON.stringify(watched))
   });
 
   return (
