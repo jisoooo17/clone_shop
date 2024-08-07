@@ -6,6 +6,13 @@
 .flex-row {display: flex; justify-content: space-between; }
 .flex-row img {width: 80%;}
 
-
 .start {opacity: 0;}
 .end {opacity: 1; transition: opacity .5s;}
+.cart {position: relative;}
+.cart h3 {padding: 40px 0;}
+.more {margin-top: 40px; padding: 10px 20px; border: 1px solid #aaa; background-color: #fff;}
+.num {border: 1px solid #aaa; background-color: #fff;}
+.num:last-child {margin-left: 4px;}
+.tab-w {padding: 20px;}
+.tab-w .btn-tab {color: #777;}
+.tab-w .cont {padding: 20px; font-size: 16px; text-align: left;}

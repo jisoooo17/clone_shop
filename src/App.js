@@ -30,9 +30,8 @@ function App() {
     <div className="App">
       <Navbar bg="light" data-bs-theme="light">
         <Container>
-          <Navbar.Brand>Shop</Navbar.Brand>
+          <Navbar.Brand onClick={()=>{navigate("/")}} style={{cursor: "pointer"}}>Shop</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link onClick={()=>{navigate("/")}}>Home</Nav.Link>
             <Nav.Link onClick={()=>{navigate("/cart")}}>Cart</Nav.Link>
           </Nav>
         </Container>
@@ -59,7 +58,7 @@ function App() {
 
               {
                 clkCnt < 3 ? (
-                  <button onClick={()=>{
+                  <button className='more' onClick={()=>{
                     axios.get(clkCnt == 1 ? "https://codingapple1.github.io/shop/data2.json" : "https://codingapple1.github.io/shop/data3.json")
                       .then((res) => {
                         let newShoes = [...shoes, ...res.data];
@@ -69,7 +68,7 @@ function App() {
                       .catch((err) => {
                         console.log(err);
                       })
-                  }}>버튼</button>
+                  }}>더보기</button>
                 ) : (
                   <div>상품이 없습니다.</div>
                 )
